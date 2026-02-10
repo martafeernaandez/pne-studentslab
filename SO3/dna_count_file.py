@@ -1,12 +1,16 @@
 #lines = ["AGTACACTGGT" , "ACCAGTGTACT" , "ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG"]
 #print("From variable:", lines)
 
+
+#Option 1
 f = open("dna_file.txt", "r")
-#Here we put the code
 lines = f.readlines()
 f.close()
 
-#print("From file:", lines)
+#Option 2
+with open('dna_file.txt', 'r') as f:
+    lines = f.readlines()
+
 
 total_number = 0
 
