@@ -19,6 +19,11 @@ bases = {"A":0, "C":0, "G":0, "T":0}
 for sequence in lines:
     sequence = sequence.strip() #Remove spaces and newline characters at the end of the string
     total_number += len(sequence)
+    result = count_bases(sequence)
+    for key in result:
+        bases[key] += result[key]
+
+    print("Total number of bases", total_number)
 
     for base in sequence:
         if base in bases:
@@ -27,4 +32,4 @@ for sequence in lines:
 for base, count in bases.items():
     print(f'{base}: {count}')
 
-print("Total number of bases", total_number)
+
