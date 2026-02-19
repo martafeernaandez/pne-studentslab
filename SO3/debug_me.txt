@@ -1,0 +1,4 @@
+The error is located in line 11, the program tries to divide by 0 and there's where the program collapse. Is type ZeroDivisionError as the "t1" value = 0
+
+This will happen anytime parameters c and d of function f take the same value.
+That's why Results 1, 3 and 4 are properly computed.
