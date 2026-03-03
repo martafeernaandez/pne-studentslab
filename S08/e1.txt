@@ -1,0 +1,4 @@
+Machine  |  Interface  |  Date  | Place  |  IP
+
+Mobile   |    Wifi     | 3/3/26 |  Univ  | 10.8.50.120
+Computer |    Wire     | 3/3/26 |  Univ  | 212.128.255.97
