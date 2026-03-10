@@ -17,7 +17,7 @@ genes = ["U5", "FRAT1", "ADA"]
 for gene_name in genes:
     s = seq()
 
-    path = f"../SO4/sequences/{gene_name}.txt"
+    path = f"../S04/sequences/{gene_name}.txt"
 
     s.read_fasta(path)
 
