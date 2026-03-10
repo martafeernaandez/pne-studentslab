@@ -1,7 +1,7 @@
 import socket
 
 IP = "192.168.1.45"
-PORT = 8080
+PORT = 8081
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((IP, PORT))

@@ -10,21 +10,17 @@ IP = "192.168.1.45"
 PORT1 = 8080
 PORT2 = 8081
 
-
-c1 = client(IP, PORT1)
-c2 = client(IP, PORT2)
+c1 = Client(IP, PORT1)
+c2 = Client(IP, PORT2)
 
 print(c1)
 print(c2)
-
 
 s = seq()
 s.read_fasta("../SO4/sequences/FRAT1.txt")
 seq_str = str(s)
 
-
 print(f"Gene FRAT1: {seq_str[:76]}...")
-
 
 for i in range(10):
     start = i * 10
