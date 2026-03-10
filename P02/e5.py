@@ -13,7 +13,7 @@ c = client(IP, PORT)
 print(c)
 
 s = seq()
-s.read_fasta("../SO4/sequences/FRAT1.txt")
+s.read_fasta("../S04/sequences/FRAT1.txt")
 allsequence = str(s)
 
 print(f"Gene FRAT1: {allsequence[:71]}...")
