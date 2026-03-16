@@ -28,7 +28,7 @@ while True:
     elif msg.startswith("GET"):
         print("GET command!")
         parts = msg.split()
-        numero = int(parts[1])
+        number = int(parts[1])
         response = SEQUENCES[number] + "\n"
 
     # e3
