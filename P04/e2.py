@@ -1,40 +1,63 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+import socket
+import termcolor
 
-# --- Configuration ---
+# -- Server network parameters
 IP = "127.0.0.1"
 PORT = 8080
 
 
-# --- Server Logic ---
-class SimpleWebHandler(BaseHTTPRequestHandler):
+def process_client(s):
+    # -- Receive the request message
+    req_raw = s.recv(2000)
+    req = req_raw.decode()
 
-    # This method automatically handles all GET requests from the browser
-    def do_GET(self):
-        # 1. Check if the requested path is exactly "/info/A"
-        if self.path == "/info/A":
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
+    # -- Split the request messages into lines
+    lines = req.split('\n')
+    req_line = lines[0]
 
-            # Read the HTML file and send it
-            try:
-                with open("A.html", "rb") as file:
-                    self.wfile.write(file.read())
-            except FileNotFoundError:
-                self.wfile.write(b"Error: A.html not found.")
+    print("Request line: ", end="")
+    termcolor.cprint(req_line, "green")
 
-        # 2. For any other resource, send a blank response
-        else:
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(b"")  # Sending an empty byte string creates a blank page
+    # --- MODIFICACIÓN PARA TU EJERCICIO ---
+    # Si la línea de petición contiene /info/A, abrimos tu archivo
+    if "/info/A" in req_line:
+        # Abrimos el archivo que está en tu carpeta html/info/
+        f = open("html/info/A.html", "r")
+        body = f.read()
+        f.close()
+    else:
+        # Si pide otra cosa, cuerpo vacío como pide el ejercicio
+        body = ""
+    # ---------------------------------------
+
+    # -- Status line
+    status_line = "HTTP/1.1 200 OK\n"
+    # -- Add the Content-Type header
+    header = "Content-Type: text/html\n"
+    # -- Add the Content-Length
+    header += f"Content-Length: {len(body)}\n"
+
+    # -- Build the message
+    response_msg = status_line + header + "\n" + body
+    s.send(response_msg.encode())
 
 
-# --- Start the Server ---
-server = HTTPServer((IP, PORT), SimpleWebHandler)
-print(f"Server is up and running.")
-print(f"Waiting for connections at http://{IP}:{PORT}")
+# -------------- MAIN PROGRAM
+ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+ls.bind((IP, PORT))
+ls.listen()
 
-# Keep the server running infinitely
-server.serve_forever()
+print("Green server configured!")
+
+while True:
+    print("Waiting for clients....")
+    try:
+        (cs, client_ip_port) = ls.accept()
+    except KeyboardInterrupt:
+        print("Server stopped!")
+        ls.close()
+        exit()
+    else:
+        process_client(cs)
+        cs.close()
