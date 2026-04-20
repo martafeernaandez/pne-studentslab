@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice 6. EX-03</title>
+</head>
+<body>
+    <h1>SEQ2 server</h1>
+    <p>Access to the Server</p>
+    <hr>
+
+    <form action="/ping" method="get">
+        <label>Is the server alive?</label>
+        <button type="submit">PING</button>
+    </form>
+
+    <hr>
+
+    <form action="/get" method="get">
+        <label>Get a Sequence. Select sequence number</label>
+        <select name="n">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <button type="submit">GET</button>
+    </form>
+
+    <hr>
+
+    <form action="/gene" method="get">
+        <label>Get a Gene. Select the name</label>
+        <select name="name">
+            <option value="U5">U5</option>
+            <option value="ADA">ADA</option>
+            <option value="FRAT1">FRAT1</option>
+            <option value="RNU6_269P">RNU6_269P</option>
+            <option value="FXN">FXN</option>
+        </select>
+        <button type="submit">GENE</button>
+    </form>
+
+</body>
+</html>
