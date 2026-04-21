@@ -40,6 +40,21 @@
         </select>
         <button type="submit">GENE</button>
     </form>
+<hr>
 
+    <form action="/operation" method="get">
+        <label>Write a sequence:</label>
+        <input type="text" name="seq" required>
+        <br>
+
+        <label>Select operation</label>
+        <input type="radio" id="info" name="op" value="info" checked> Info
+        <input type="radio" id="comp" name="op" value="comp"> Comp
+        <input type="radio" id="rev" name="op" value="rev"> Rev
+        <br>
+
+        <label>Perform operation:</label>
+        <button type="submit">OPERATE!</button>
+    </form>
 </body>
 </html>
