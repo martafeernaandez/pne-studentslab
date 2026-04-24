@@ -68,11 +68,11 @@ for name in GENES:
             termcolor.cprint(b, 'green', end="")
             print(f": {count} ({percent:.1f}%)")
 
-    diccionario_bases = s.count()
-    base_mas_frecuente = max(diccionario_bases, key=diccionario_bases.get)
+    bases_dictionary = s.count()
+    frequent_base = max(bases_dictionary, key=bases_dictionary.get)
 
     termcolor.cprint("Most frequent Base", 'green', end="")
-    print(f": {base_mas_frecuente}")
+    print(f": {frequent_base}")
     print()
 
     conn.close()
