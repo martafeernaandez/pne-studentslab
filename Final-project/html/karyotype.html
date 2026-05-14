@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: lightblue;">
+    <h1>Karyotype for {{species}}</h1>
+    <ul>
+    {% for chromosome in karyotype %}
+    <li>{{ chromosome }}</li>
+    {% endfor %}
+    </ul>
+    <br><a href="/">Main page</a>
+</body>
+</html>

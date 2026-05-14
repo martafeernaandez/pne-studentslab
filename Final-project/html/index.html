@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final project</title>
+</head>
+<body style="background-color: beige;">
+    <h1>Browsing Human and Vertebrates genome</h1>
+    <h2>BASIC level services</h2>
+    <p>1) List of species in the genome database</p>
+        <form action="/listSpecies" method="get">
+        <label>Limit :</label> <input type="text" name="limit">
+        <br><br>
+        <input type="submit" value="Send">
+        </form>
+
+    <p>2) Information about the karyotype :</p>
+        <form action="/karyotype" method="get">
+        <label>Select the species :</label> <input type="text" name="species">
+        <br><br>
+        <input type="submit" value="Send">
+        </form>
+
+    <p>3) Chromosome Length</p>
+        <form action="/chromosomeLength" method="get">
+        <label>Select the species :</label> <input type="text" name="species">
+        <br><br>
+        <label>Select a chromosome :</label> <input type="text" name="chromo">
+        <br><br>
+        <input type="submit" value="Send">
+        </form>
+
+<!-- Medium level -->
+<h2>Medium Level Services</h2>
+
+<form action="/geneLookup" method="get">
+    <p>1) Gene Lookup (Stable ID):</p>
+    Gene Name: <input type="text" name="gene" required>
+    <button type="submit">Send</button>
+</form>
+
+<form action="/geneSeq" method="get">
+    <p>2) Gene Sequence:</p>
+    Gene Name: <input type="text" name="gene" required>
+    <button type="submit">Send</button>
+</form>
+
+<form action="/geneInfo" method="get">
+    <p>3) Gene Information:</p>
+    Gene Name: <input type="text" name="gene" required>
+    <button type="submit">Send</button>
+</form>
+
+<form action="/geneCalc" method="get">
+    <p>4) Gene Calculations:</p>
+    Gene Name: <input type="text" name="gene" required>
+    <button type="submit">Send</button>
+</form>
+
+<form action="/geneList" method="get">
+    <p>5) Gene List by Region:</p>
+    Chromosome: <input type="text" name="chromo" required>
+    Start: <input type="text" name="start" required>
+    End: <input type="text" name="end" required>
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

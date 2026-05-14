@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: lightblue;">
+    <p>The total number of species in the ensembl is: 267</p>
+    <p>The limit you have selected is: {{ limit }} </p>
+    <p>The names of the species are: </p>
+    <ul>
+    {% for species in species_list %}
+    <li>{{ species.display_name }} ({{ species.name }})</li>
+    {% endfor %}
+    </ul>
+    <br><a href="/">Main page</a>
+</body>
+</html>
