@@ -121,4 +121,5 @@ if data:
     else:
         print(f" Unexpected response: {data}")
 
+print("\n")
 print("ALL TEST FINISHED")
